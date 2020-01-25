@@ -4,12 +4,18 @@ import com.koory1st.spring_boot_swagger.dto.PetDto;
 import com.koory1st.spring_boot_swagger.vo.PetVo;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/pets")
 public class PetController {
     @GetMapping
-    public PetVo getInfoList(String filter, Integer pageNum, Integer pageSize) {
-        return new PetVo();
+    public List<PetVo> getInfoList(String filter, Integer pageNum, Integer pageSize) {
+
+        ArrayList<PetVo> list = new ArrayList<>();
+        list.add(new PetVo());
+        return list;
     }
 
     @GetMapping("/{id}")
