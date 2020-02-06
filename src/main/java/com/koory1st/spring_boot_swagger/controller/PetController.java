@@ -24,7 +24,7 @@ public class PetController {
     }
 
     @PostMapping
-    public PetVo saveInfo(PetDto info) {
+    public PetVo saveInfo(@RequestBody PetDto info) {
         return new PetVo();
     }
 
