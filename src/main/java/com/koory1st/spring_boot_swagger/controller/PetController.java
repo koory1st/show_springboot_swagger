@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+//@RestController
 @RequestMapping("/pets")
 public class PetController {
     @GetMapping
@@ -20,16 +20,20 @@ public class PetController {
 
     @GetMapping("/{id}")
     public PetVo getInfo(@PathVariable Long id) {
-        return new PetVo();
+        PetVo rt = new PetVo();
+
+        rt.setId(id);
+        return rt;
     }
 
     @PostMapping
     public PetVo saveInfo(@RequestBody PetDto info) {
-        return new PetVo();
+        PetVo rt = new PetVo();
+        return rt;
     }
 
     @PutMapping("/{id}")
-    public PetVo updateInfo(Long id, PetDto info) {
+    public PetVo updateInfo(Long id, @RequestBody PetDto info) {
         return new PetVo();
     }
 
