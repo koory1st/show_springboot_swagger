@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class PetDto {
-    private Long id;
-    private String name;
+  private Long id;
+  private String name;
 }

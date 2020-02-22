@@ -10,34 +10,35 @@ import java.util.List;
 //@RestController
 @RequestMapping("/pets")
 public class PetController {
-    @GetMapping
-    public List<PetVo> getInfoList(String filter, Integer pageNum, Integer pageSize) {
+  @GetMapping
+  public List<PetVo> getInfoList(String filter, Integer pageNum, Integer pageSize) {
 
-        ArrayList<PetVo> list = new ArrayList<>();
-        list.add(new PetVo());
-        return list;
-    }
+    ArrayList<PetVo> list = new ArrayList<>();
+    list.add(new PetVo());
+    return list;
+  }
 
-    @GetMapping("/{id}")
-    public PetVo getInfo(@PathVariable Long id) {
-        PetVo rt = new PetVo();
+  @GetMapping("/{id}")
+  public PetVo getInfo(@PathVariable Long id) {
+    PetVo rt = new PetVo();
 
-        rt.setId(id);
-        return rt;
-    }
+    rt.setId(id);
+    return rt;
+  }
 
-    @PostMapping
-    public PetVo saveInfo(@RequestBody PetDto info) {
-        PetVo rt = new PetVo();
-        return rt;
-    }
 
-    @PutMapping("/{id}")
-    public PetVo updateInfo(Long id, @RequestBody PetDto info) {
-        return new PetVo();
-    }
+  @PostMapping
+  public PetVo saveInfo(@RequestBody PetDto info) {
+    PetVo rt = new PetVo();
+    return rt;
+  }
 
-    @DeleteMapping("/{id}")
-    public void deleteInfo(Long id) {
-    }
+  @PutMapping("/{id}")
+  public PetVo updateInfo(Long id, @RequestBody PetDto info) {
+    return new PetVo();
+  }
+
+  @DeleteMapping("/{id}")
+  public void deleteInfo(Long id) {
+  }
 }
