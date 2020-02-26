@@ -1,4 +1,4 @@
-package com.koory1st.spring_boot_swagger.config;
+package com.koory1st.springboot.swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

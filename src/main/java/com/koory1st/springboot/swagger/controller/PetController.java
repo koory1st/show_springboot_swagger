@@ -1,13 +1,13 @@
-package com.koory1st.spring_boot_swagger.controller;
+package com.koory1st.springboot.swagger.controller;
 
-import com.koory1st.spring_boot_swagger.dto.PetDto;
-import com.koory1st.spring_boot_swagger.vo.PetVo;
+import com.koory1st.springboot.swagger.dto.PetDto;
+import com.koory1st.springboot.swagger.vo.PetVo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//@RestController
+@RestController
 @RequestMapping("/pets")
 public class PetController {
   @GetMapping
@@ -30,6 +30,7 @@ public class PetController {
   @PostMapping
   public PetVo saveInfo(@RequestBody PetDto info) {
     PetVo rt = new PetVo();
+
     return rt;
   }
 

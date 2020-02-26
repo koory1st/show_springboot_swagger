@@ -1,4 +1,4 @@
-package com.koory1st.spring_boot_swagger.vo;
+package com.koory1st.springboot.swagger.vo;
 
 import lombok.Data;
 

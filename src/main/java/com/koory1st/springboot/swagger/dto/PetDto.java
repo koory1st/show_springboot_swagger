@@ -1,9 +1,9 @@
-package com.koory1st.spring_boot_swagger.model;
+package com.koory1st.springboot.swagger.dto;
 
 import lombok.Data;
 
 @Data
-public class Pet {
+public class PetDto {
   private Long id;
   private String name;
 }

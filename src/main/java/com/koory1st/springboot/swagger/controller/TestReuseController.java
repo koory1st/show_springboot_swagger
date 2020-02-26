@@ -1,4 +1,4 @@
-package com.koory1st.spring_boot_swagger.controller;
+package com.koory1st.springboot.swagger.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

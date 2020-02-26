@@ -1,4 +1,4 @@
-package com.koory1st.spring_boot_swagger;
+package com.koory1st.springboot.swagger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
