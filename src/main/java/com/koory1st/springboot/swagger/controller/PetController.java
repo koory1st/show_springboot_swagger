@@ -1,11 +1,13 @@
 package com.koory1st.springboot.swagger.controller;
 
 import com.koory1st.springboot.swagger.dto.PetDto;
+import com.koory1st.springboot.swagger.exception.MyException;
 import com.koory1st.springboot.swagger.vo.PetVo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/pets")
@@ -29,6 +31,9 @@ public class PetController {
 
   @PostMapping
   public PetVo saveInfo(@RequestBody PetDto info) {
+    if (Objects.equals(info.getId(), 3L)) {
+      throw new MyException("id is three");
+    }
     PetVo rt = new PetVo();
 
     return rt;
