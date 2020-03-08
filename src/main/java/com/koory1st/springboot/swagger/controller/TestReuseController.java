@@ -2,9 +2,8 @@ package com.koory1st.springboot.swagger.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+//@RestController
 @RequestMapping("/test-reuse")
 public class TestReuseController {
   @GetMapping("/add-a")
