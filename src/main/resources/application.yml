@@ -1,2 +1,4 @@
-
 logging.level.org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
