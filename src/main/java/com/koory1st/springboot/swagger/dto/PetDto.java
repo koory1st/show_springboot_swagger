@@ -11,8 +11,8 @@ public class PetDto {
   private String name;
   @Max(value = 150, message = "age")
   private Integer age;
-  @Max(value = 8, message = "leg count")
+  @Max(value = 8, message = "legCount")
   private Integer legCount;
-  @Max(value = 8, message = "eye count")
+  @Max(value = 8, message = "eyeCount")
   private Integer eyeCount;
 }

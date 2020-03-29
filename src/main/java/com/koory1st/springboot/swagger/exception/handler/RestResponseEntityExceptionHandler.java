@@ -2,6 +2,9 @@ package com.koory1st.springboot.swagger.exception.handler;
 
 import com.koory1st.springboot.swagger.exception.ErrorCodeVo;
 import com.koory1st.springboot.swagger.exception.MyException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,11 +13,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler {
+  @Autowired
+  private MessageSource messageSource;
 
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ExceptionHandler(MyException.class)
@@ -29,23 +33,23 @@ public class RestResponseEntityExceptionHandler {
   @ResponseBody
   public ErrorCodeVo handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
 
+    String code = "E00001";
     String errorMessage = ex.getBindingResult().getAllErrors().stream()
-      .map(error -> getArgMessageByError(error))
+      .map(error -> getArgMessageByError(code, error))
       .collect(Collectors.joining(","));
 
-    return new ErrorCodeVo("003", errorMessage);
+    return new ErrorCodeVo(code, errorMessage);
   }
 
-  private String getArgMessageByError(ObjectError error) {
-    if (Objects.equals(error.getCode(), "Max")) {
-      return String.format("%s can't be more than %s", error.getDefaultMessage(), getLastArg(error.getArguments()));
+  private String getArgMessageByError(String code, ObjectError error) {
+    String field = error.getDefaultMessage();
+    if (field != null) {
+      field = messageSource.getMessage(field, null, LocaleContextHolder.getLocale());
     }
-
-    if (Objects.equals(error.getCode(), "NotBlank")) {
-      return String.format("%s can't be empty", error.getDefaultMessage());
-    }
-
-    return null;
+    return messageSource.getMessage(
+      code,
+      new String[] {field, getLastArg(error.getArguments())},
+      LocaleContextHolder.getLocale());
   }
 
   private String getLastArg(Object[] args) {
